@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: dependencies
-      run: sudo apt-get install build-essential git libtool autotools-dev autoconf pkg-config libssl-dev libevent-dev -y && sudo apt install libssl1.0-dev -y && sudo apt-get install libboost-all-dev -y && sudo add-apt-repository ppa:bitcoin/bitcoin && sudo apt update && sudo apt-get install libdb4.8-dev libdb4.8++-dev -y &&  sudo apt-get install libminiupnpc-dev
+      run: sudo apt-get install build-essential git libtool autotools-dev autoconf pkg-config libssl-dev libevent-dev -y && sudo apt install libssl1.0-dev -y && sudo apt-get install libboost-all-dev -y && sudo add-apt-repository ppa:bitcoin/bitcoin && sudo apt update && sudo apt-get install libdb4.8-dev libdb4.8++-dev -y &&  sudo apt-get install libminiupnpc-dev -y
     - name: make 
       run: cd src && make -f makefile.unix
     - name: make check
