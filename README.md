@@ -7,6 +7,8 @@ Copyright (c) 2012-2014 The PPCoin developers
 
 Copyright (c) 2014-2017 The Magi Core developers
 
+Copyright (c) 2020-     The  Magi Community Core Developers
+
 Coin Magi, derived from Bitcoin and PPCoin, is released under the terms of 
 the MIT license. See COPYING for more information or see 
 http://opensource.org/licenses/MIT.
