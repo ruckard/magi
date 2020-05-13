@@ -29,12 +29,12 @@ typedef int pid_t; /* define for Windows compatibility */
 #include <openssl/ripemd.h>
 
 #include "netbase.h" // for AddTimeData
+#include "amount.h"
 
 typedef long long  int64;
 typedef unsigned long long  uint64;
 
-static const int64 COIN = 100000000;
-static const int64 CENT = 1000000;
+// static const CENT = 1000000;
 
 static const double MINFINITESIMAL = 1.e-30;
 
