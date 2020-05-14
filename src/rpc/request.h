@@ -8,7 +8,7 @@
 
 #include <string>
 
-#include <univalue.h>
+#include <univalue/include/univalue.h>
 
 UniValue JSONRPCRequestObj(const std::string& strMethod, const UniValue& params, const UniValue& id);
 UniValue JSONRPCReplyObj(const UniValue& result, const UniValue& error, const UniValue& id);
