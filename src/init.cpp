@@ -30,6 +30,8 @@ bool fUseFastIndex;
 extern int64 nStakeSplitThreshold;
 extern int64 nStakeCombineThreshold;
 
+void ThreadRPCServer(void* parg);
+
 //////////////////////////////////////////////////////////////////////////////
 //
 // Shutdown
