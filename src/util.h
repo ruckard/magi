@@ -19,6 +19,8 @@ typedef int pid_t; /* define for Windows compatibility */
 #include <string>
 #include <cstdarg>
 
+class CBlockIndex;
+
 #include <boost/thread.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/path.hpp>
@@ -552,6 +554,12 @@ inline uint32_t ByteReverse(uint32_t value)
 }
 
 std::string CopyrightHolders(const std::string& strPrefix);
+
+extern double GetPoWHashPS(int lookup = 120, int height = -1);
+extern double GetPoWMHashPS();
+extern double GetPoSKernelPS(const CBlockIndex* blockindex = NULL, int lookup = 72);
+extern double GetPoSKernelPSV2(const CBlockIndex* blockindex = NULL, int lookup = 72);
+extern double GetPoSKernelPSV3(const CBlockIndex* blockindex = NULL);
 
 #endif // MAGI_UTIL_H
 

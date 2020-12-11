@@ -10,8 +10,6 @@
 #include <list>
 #include <map>
 
-class CBlockIndex;
-
 #include "json/json_spirit_reader_template.h"
 #include "json/json_spirit_writer_template.h"
 #include "json/json_spirit_utils.h"
@@ -142,11 +140,6 @@ extern int64 AmountFromValue(const json_spirit::Value& value);
 extern json_spirit::Value ValueFromAmount(int64 amount);
 extern double GetDifficulty(const CBlockIndex* blockindex = NULL);
 
-extern double GetPoWHashPS(int lookup = 120, int height = -1);
-extern double GetPoWMHashPS();
-extern double GetPoSKernelPS(const CBlockIndex* blockindex = NULL, int lookup = 72);
-extern double GetPoSKernelPSV2(const CBlockIndex* blockindex = NULL, int lookup = 72);
-extern double GetPoSKernelPSV3(const CBlockIndex* blockindex = NULL);
 
 extern std::string HexBits(unsigned int nBits);
 extern std::string HelpRequiringPassphrase();
