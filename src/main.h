@@ -8,6 +8,7 @@
 #include "bignum.h"
 #include "sync.h"
 #include "net.h"
+#include "block_index.h"
 #include "script.h"
 #include "scrypt_mine.h"
 #include "hash_magi.h"
