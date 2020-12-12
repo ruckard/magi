@@ -3541,6 +3541,8 @@ bool LoadBlockIndex(bool fAllowNew)
     if (!Checkpoints::CheckCheckpointPubKey())
         return error("LoadBlockIndex() : failed to reset checkpoint master pubkey");
 
+    txdb.Close();
+
     return true;
 }
 
