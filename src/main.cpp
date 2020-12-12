@@ -3541,8 +3541,16 @@ bool LoadBlockIndex(bool fAllowNew)
     if (!Checkpoints::CheckCheckpointPubKey())
         return error("LoadBlockIndex() : failed to reset checkpoint master pubkey");
 
+printf("DEBUG: txdb.Close() - BEFORE.\n");
     txdb.Close();
 
+// printf("DEBUG: txdb.Close() - AFTER.\n");
+// printf("DEBUG: Waiting for 30 seconds.\n");
+// MilliSleep(30000);
+// printf("DEBUG: Delete m_pool.\n");
+// MAGI::BlockIndexPool::DeleteMBlock();
+// printf("DEBUG: Waiting for another 30 seconds.\n");
+// MilliSleep(30000);
     return true;
 }
 

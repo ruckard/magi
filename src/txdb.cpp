@@ -131,6 +131,15 @@ void CTxDB::Close()
     options.block_cache = NULL;
     delete activeBatch;
     activeBatch = NULL;
+
+    printf("DEBUG: txdb.Close() - AFTER.\n");
+    printf("DEBUG: Waiting for 30 seconds.\n");
+    MilliSleep(30000);
+    printf("DEBUG: Delete m_pool.\n");
+    MAGI::BlockIndexPool::DeleteMBlock();
+    printf("DEBUG: Waiting for another 30 seconds.\n");
+    MilliSleep(30000);
+
 }
 
 bool CTxDB::TxnBegin()

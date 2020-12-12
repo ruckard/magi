@@ -39,6 +39,19 @@ public:
     {
         return m_block_index_pool.GetNext();
     }
+    static void DeleteMBlock()
+    {
+        m_block_index_pool.DeleteMBlock();
+    }
+//     static Pool<CBlockIndex> GetMBlock()
+//     {
+//         return m_block_index_pool;
+//     }
+//     void DeleteMBlock()
+//     {
+//         m_block_index_pool.DeleteMBlock();
+//     }
+
 
 private:
     //!
@@ -75,6 +88,10 @@ private:
             }
 
             return &m_pool.front()[m_offset++];
+        }
+        void DeleteMBlock()
+        {
+            m_pool.clear();
         }
 
     private:
