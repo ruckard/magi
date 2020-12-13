@@ -11,6 +11,7 @@
 #include "script.h"
 #include "scrypt_mine.h"
 #include "hash_magi.h"
+#include "memory_mapping.h"
 
 #include <list>
 
@@ -1480,6 +1481,19 @@ public:
     {
         printf("%s\n", ToString().c_str());
     }
+
+    //! Use a memory mapped to run on low memory devices.
+    //! If a device runs out of memory it saves the unneeded pages to disk storage.
+    #if defined(MEMORY_MAPPING) && !defined(WIN32)
+    void* operator new(size_t size) {
+        DiskAllocator* da = DiskAllocator::getInstance();
+        return da->alloc(size);
+    }
+
+    void operator delete(void* ptr) {
+        // do nothing
+    }
+    #endif
 };
 
 

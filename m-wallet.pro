@@ -96,6 +96,12 @@ contains(USE_DBUS, 1) {
     QT += dbus
 }
 
+# use: qmake "USE_LOW_MEMORY_MODE=1"
+contains(USE_LOW_MEMORY_MODE, 1) {
+    message(Building with Low Memory Mode support)
+    DEFINES += MEMORY_MAPPING
+}
+
 # use: qmake "USE_IPV6=1" ( enabled by default; default)
 #  or: qmake "USE_IPV6=0" (disabled by default)
 #  or: qmake "USE_IPV6=-" (not supported)
@@ -125,7 +131,8 @@ SOURCES += src/txdb.cpp \
     src/qt/magiunits.cpp \
     src/magirpc.cpp \
     src/clientversion.cpp \
-    src/qt/utilitydialog.cpp
+    src/qt/utilitydialog.cpp \
+    src/memory_mapping.cpp
 !win32 {
     # we use QMAKE_CXXFLAGS_RELEASE even without RELEASE=1 because we use RELEASE to indicate linking preferences not -O preferences
     genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a
