@@ -1,4 +1,71 @@
-Coin Magi
+Ruckard's Coin Magi Corner
+====================
+
+Introduction
+------------
+While the [magi community](https://www.xmg.network/) finds a proper developer who knows how to rebase magi code on latest bitcoin core version I will be tinkering with the old code and improving it a bit.
+
+Issues are welcome
+------------------
+You are welcome to open [issues](https://github.com/ruckard/magi/issues) but don't get mad at me if I ignore your requests.
+
+What you can expect
+-------------------
+In addition to fix bugs and adapt the software to newest systems I'll also try to release some newer versions although if nobody helps me on how to cross-compile them and test them, well, you would find out that you only have the linux release as the last version.
+
+About latest upstream version
+------------------------------
+The latest upstream version was 1.4.6.2 version from 16 May 2018.
+If there's a newer version on the [releases](https://github.com/ruckard/magi/releases) section then it's probably a version from me.
+
+Can you help me on installing/using this?
+-----------------------------------
+Short answer: No, I'm busy developing this or doing stuff IRL.
+
+Long answer:
+First of all check the documentation found on [https://www.xmg.network/](https://www.xmg.network/). Please complain to them if the documentation is not good enough. Also check for help on their discord server. [Latest The Magi Lounge Discord invitation link](https://discord.gg/EPHw749). If the link is not valid please search for it on [https://www.xmg.network/](https://www.xmg.network/).
+
+Just check the documentation (README and INSTALL files) found on the branch you are using or in the release you are downloading.
+If the documentation can be improved please open a new [issue](https://github.com/ruckard/magi/issues).
+
+
+
+Technical stuff
+====================
+
+* Development branches will be named as dev/branchname . Be warned that I can force-push commits to them.
+* Stable branches, if there are any, would be the numbered ones (1.x.y.z) which represent the newest versions.
+* The default branch of this repo is ruckard-corner so that you can see this special message. If you are forking this repo please remove this ruckard-corner branch from your own forked repo.
+* master branch is not modified so that it matches upstream repo, and, well, because it might be used as the stable branch much much later in the future. Who knows.
+* upstream branch matches upstream repo.
+* [WillWammer magi2.0 repo](https://github.com/WillWammer/magi2.0) attempted to port the codebase to latest Bitcoin core version but I don't think they have finished the port. You will find the 2020 May snapshot of their work here in the dev/willwammer-master branch just in case it is useful in the future.
+* If you are a developer from the future willing to continue the magi project and I am not reachable I have already explained what you have to do above but I think it was rather cryptic. So here it goes:
+    - Clone the full repo
+    - Remove the ruckard-corner branch but after having saved this updated README.
+    - Find if there's something interesting in the dev/ branches. You might want to reuse some of those ideas.
+    - Check for the highest numbered branch (1.x.y.z) which has an associated release. This should be your stable branch.
+    - If there is a highest numbered branch (1.x.y.z) but it does not have an associated release. This might be your stable branch or not. You are on your own making that decision.
+    - Good luck!
+
+
+
+<pre>
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+</pre>
+
+Traditional Coin Magi README
 ====================
 
 Copyright (c) 2009-2012 The Bitcoin Core developers
