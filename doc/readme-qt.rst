@@ -88,6 +88,13 @@ Mac OS X
 
 Build configuration options
 ============================
+Libboost 1.67
+-------------
+For Debian Buster systems and alike.
+
+::
+
+qmake "USE_LIBBOOST_167=1"
 
 UPNnP port forwarding
 ---------------------
