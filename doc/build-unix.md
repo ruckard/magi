@@ -98,6 +98,11 @@ your package manager. Set USE_QRCODE to control this:
 	USE_QRCODE=0   (the default) No QRCode support - libqrcode not required
 	USE_QRCODE=1   QRCode support enabled
 
+libboost 1.67 versions can be enforced by using:
+
+	USE_LIBBOOST_167=0   (the default) Libboost 1.70+ support
+	USE_LIBBOOST_167=1   Libboost 1.67 specific support
+
 Dependency Build Instructions: Ubuntu & Debian (i386, amd64)
 ----------------------------------------------
 See above db4.8 building if you cannot find it through apt installation. The version libgmp may change, for example, libgmp3-dev as in the latest Debian distribution, you'll need to make sure the right version to be installed. 
