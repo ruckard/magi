@@ -103,10 +103,10 @@ your package manager. Set USE_QRCODE to control this:
 	USE_QRCODE=0   (the default) No QRCode support - libqrcode not required
 	USE_QRCODE=1   QRCode support enabled
 
-libboost 1.67 versions can be enforced by using:
+Prior to libboost 1.66 versions can be enforced by using:
 
-	USE_LIBBOOST_165=0   (the default) Libboost 1.70+ support
-	USE_LIBBOOST_165=1   Libboost 1.67 specific support
+	USE_LIBBOOST_165=0   (the default) Libboost 1.66+ support
+	USE_LIBBOOST_165=1   Prior to Libboost 1.66 specific support
 
 Dependency Build Instructions: Ubuntu & Debian (i386, amd64)
 ----------------------------------------------
