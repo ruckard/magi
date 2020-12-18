@@ -668,20 +668,36 @@ void ThreadRPCServer(void* parg)
 }
 
 // Forward declaration required for RPCListen
+#if BOOST_VERSION >= 106600 && BOOST_VERSION < 107000
+template <typename Protocol>
+static void RPCAcceptHandler(boost::shared_ptr< basic_socket_acceptor<Protocol> > acceptor,
+                             ssl::context& context,
+                             bool fUseSSL,
+                             AcceptedConnection* conn,
+                             const boost::system::error_code& error);
+#else
 template <typename Protocol, typename SocketAcceptorService>
 static void RPCAcceptHandler(boost::shared_ptr< basic_socket_acceptor<Protocol, SocketAcceptorService> > acceptor,
                              ssl::context& context,
                              bool fUseSSL,
                              AcceptedConnection* conn,
                              const boost::system::error_code& error);
+#endif
 
 /**
  * Sets up I/O resources to accept and handle a new connection.
  */
+#if BOOST_VERSION >= 106600 && BOOST_VERSION < 107000
+template <typename Protocol>
+static void RPCListen(boost::shared_ptr< basic_socket_acceptor<Protocol> > acceptor,
+                   ssl::context& context,
+                   const bool fUseSSL)
+#else
 template <typename Protocol, typename SocketAcceptorService>
 static void RPCListen(boost::shared_ptr< basic_socket_acceptor<Protocol, SocketAcceptorService> > acceptor,
                    ssl::context& context,
                    const bool fUseSSL)
+#endif
 {
     // Accept connection
 #if BOOST_VERSION >= 106600
@@ -693,7 +709,11 @@ static void RPCListen(boost::shared_ptr< basic_socket_acceptor<Protocol, SocketA
     acceptor->async_accept(
             conn->sslStream.lowest_layer(),
             conn->peer,
+#if BOOST_VERSION >= 106600 && BOOST_VERSION < 107000
+            boost::bind(&RPCAcceptHandler<Protocol>,
+#else
             boost::bind(&RPCAcceptHandler<Protocol, SocketAcceptorService>,
+#endif
                 acceptor,
                 boost::ref(context),
                 fUseSSL,
@@ -704,12 +724,21 @@ static void RPCListen(boost::shared_ptr< basic_socket_acceptor<Protocol, SocketA
 /**
  * Accept and handle incoming connection.
  */
+#if BOOST_VERSION >= 106600 && BOOST_VERSION < 107000
+template <typename Protocol>
+static void RPCAcceptHandler(boost::shared_ptr< basic_socket_acceptor<Protocol> > acceptor,
+                             ssl::context& context,
+                             const bool fUseSSL,
+                             AcceptedConnection* conn,
+                             const boost::system::error_code& error)
+#else
 template <typename Protocol, typename SocketAcceptorService>
 static void RPCAcceptHandler(boost::shared_ptr< basic_socket_acceptor<Protocol, SocketAcceptorService> > acceptor,
                              ssl::context& context,
                              const bool fUseSSL,
                              AcceptedConnection* conn,
                              const boost::system::error_code& error)
+#endif
 {
     vnThreadsRunning[THREAD_RPCLISTENER]++;
 
