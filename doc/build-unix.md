@@ -105,8 +105,8 @@ your package manager. Set USE_QRCODE to control this:
 
 libboost 1.67 versions can be enforced by using:
 
-	USE_LIBBOOST_167=0   (the default) Libboost 1.70+ support
-	USE_LIBBOOST_167=1   Libboost 1.67 specific support
+	USE_LIBBOOST_165=0   (the default) Libboost 1.70+ support
+	USE_LIBBOOST_165=1   Libboost 1.67 specific support
 
 Dependency Build Instructions: Ubuntu & Debian (i386, amd64)
 ----------------------------------------------

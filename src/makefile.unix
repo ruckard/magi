@@ -15,7 +15,7 @@ USE_IPV6:=1
 
 # :=1 --> Lower or equal than LIBBOOST 1.67
 # :=0 --> Higher than LIBOOST 1.67
-USE_LIBBOOST_167:=0
+USE_LIBBOOST_165:=0
 
 LINK:=$(CXX)
 
@@ -48,7 +48,7 @@ LIBS += \
    -l boost_filesystem$(BOOST_LIB_SUFFIX) \
    -l boost_program_options$(BOOST_LIB_SUFFIX) \
    -l boost_thread$(BOOST_LIB_SUFFIX)
-ifneq (${USE_LIBBOOST_167}, 1)
+ifneq (${USE_LIBBOOST_165}, 1)
 	LIBS += -l boost_chrono$(BOOST_LIB_SUFFIX)
 endif
 LIBS += \

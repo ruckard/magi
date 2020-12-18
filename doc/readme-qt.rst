@@ -94,7 +94,7 @@ For Debian Buster systems and alike.
 
 ::
 
-qmake "USE_LIBBOOST_167=1"
+qmake "USE_LIBBOOST_165=1"
 
 UPNnP port forwarding
 ---------------------
