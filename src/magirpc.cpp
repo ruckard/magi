@@ -574,7 +574,7 @@ public:
     }
     bool connect(const std::string& server, const std::string& port)
     {
-#if BOOST_VERSION >= 107000
+#if BOOST_VERSION >= 106600
         ip::tcp::resolver resolver(GetIOService(stream));
 #else
         ip::tcp::resolver resolver(stream.get_io_service());
@@ -684,7 +684,7 @@ static void RPCListen(boost::shared_ptr< basic_socket_acceptor<Protocol, SocketA
                    const bool fUseSSL)
 {
     // Accept connection
-#if BOOST_VERSION >= 107000
+#if BOOST_VERSION >= 106600
     AcceptedConnectionImpl<Protocol>* conn = new AcceptedConnectionImpl<Protocol>(GetIOServiceFromPtr(acceptor), context, fUseSSL);
 #else
     AcceptedConnectionImpl<Protocol>* conn = new AcceptedConnectionImpl<Protocol>(acceptor->get_io_service(), context, fUseSSL);
@@ -780,7 +780,7 @@ void ThreadRPCServer2(void* parg)
 
     asio::io_service io_service;
 
-#if BOOST_VERSION >= 107000
+#if BOOST_VERSION >= 106600
     ssl::context context(ssl::context::sslv23);
 #else
     ssl::context context(io_service, ssl::context::sslv23);
@@ -800,7 +800,7 @@ void ThreadRPCServer2(void* parg)
         else printf("ThreadRPCServer ERROR: missing server private key file %s\n", pathPKFile.string().c_str());
 
         string strCiphers = GetArg("-rpcsslciphers", "TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!AH:!3DES:@STRENGTH");
-#if BOOST_VERSION >= 107000
+#if BOOST_VERSION >= 106600
         SSL_CTX_set_cipher_list(context.native_handle(), strCiphers.c_str());
 #else
         SSL_CTX_set_cipher_list(context.impl(), strCiphers.c_str());
@@ -1098,7 +1098,7 @@ Object CallRPC(const string& strMethod, const Array& params)
     // Connect to localhost
     bool fUseSSL = GetBoolArg("-rpcssl");
     asio::io_service io_service;
-#if BOOST_VERSION >= 107000
+#if BOOST_VERSION >= 106600
     ssl::context context(ssl::context::sslv23);
 #else
     ssl::context context(io_service, ssl::context::sslv23);
