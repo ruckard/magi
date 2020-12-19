@@ -163,6 +163,9 @@ equals(QMAKE_XCPUARCH, armv7l) {
 else:equals(QMAKE_XCPUARCH, armv6l) {
     message(Building without SSE2 support)
 }
+else:equals(QMAKE_XCPUARCH, aarch64) {
+    message(Building without SSE2 support)
+}
 else {
     message(Building with SSE2 support)
     QMAKE_CXXFLAGS += -msse2
