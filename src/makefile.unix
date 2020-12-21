@@ -82,7 +82,7 @@ LIBS+= \
     # If a stack buffer if overflowed, it writes over the canary number and then on return
     # when that number is checked, it won't be the same and the program will exit with
     # a "Stack smashing detected" error instead of being exploited.
-    HARDENING+=-fstack-protector-all -Wstack-protector
+    # HARDENING+=-fstack-protector-all -Wstack-protector
 
     # Make some important things such as the global offset table read only as soon as
     # the dynamic linker is finished building it. This will prevent overwriting of addresses
@@ -103,7 +103,7 @@ LIBS+= \
 #
 
 
-DEBUGFLAGS=-g
+DEBUGFLAGS=-g -ggdb
 
 # CXXFLAGS can be specified on the make command line, so we use xCXXFLAGS that only
 # adds some defaults in front. Unfortunately, CXXFLAGS=... $(CXXFLAGS) does not work.
