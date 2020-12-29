@@ -173,7 +173,7 @@ else {
 }
 #endif
 
-QMAKE_CXXFLAGS_WARN_ON = -ggdb -fdiagnostics-show-option -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -fno-stack-protector
+QMAKE_CXXFLAGS_WARN_ON = -O0 -ggdb -fdiagnostics-show-option -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -fno-stack-protector
 
 # Input
 DEPENDPATH += src src/json src/qt
